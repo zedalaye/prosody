@@ -2,7 +2,8 @@ Prosody Windows Service Loader
 ==============================
 
 This is a simple Lua script loader that runs as a Windows Service. It is mainly 
-designed to load, set-up and run Prosody in a background Windows Application Service.
+designed to load, set-up and run [Prosody](http://prosody.im) in a background 
+Windows Application Service.
 
 Design
 ------
@@ -10,14 +11,14 @@ Design
 Prosody Loader is basically the port of the lua.c command line interpreter in Delphi
 using the lua API Wrapper found in [Delphi on Rails](http://code.google.com/p/delphionrails).
 
-The DoR framework is also the basis of the Windows Service in Prosody Loader.
+The DoR framework also provides the basis of the Windows Service in Prosody Loader.
 
 Dependencies
 ------------
 
  * Delphi 2010 and later because of Generics.Collections
  * Delphi on Rails
- * InnoSetup 5.4+
+ * InnoSetup 5.4+ (optional)
 
 How to build
 ------------
@@ -50,8 +51,8 @@ Packing everything in a setup package
 
 Open the prosody.iss file in InnoSetup and click Build.
 
-This package will deploy Prosody and the Prosody Loader in C:\{pf}\Prosody and the data
-repository into {commonappdata}\Prosody (C:\ProgramData\Prosody in Windows 7, 
+This package will deploy Prosody and the Prosody Loader in {pf}\Prosody and the data
+repository into {commonappdata}\Prosody (ie. C:\ProgramData\Prosody in Windows 7, 
 C:\Documents and Settings\All Users\AppData\Prosody in Windows XP.) 
 The config file (prosody.cfg.lua) will end here too. If the config file do not exists, 
 the install package will create one based on what is in prosody.cfg.lua.template.
@@ -66,3 +67,14 @@ Todo
 * Provide some web pages to interract with host/user configuration 
   using mod_admin_telnet unless admin tasks can be done using the lua API...
 
+Credits
+-------
+
+Thanks to the Prosody guys who wrote Prosody (http://prosody.im) and thanks to Henri Gourvest 
+(http://www.progdigy.com) who wrote so many useful Delphi things including Delphi on Rails.
+
+Licensing
+---------
+
+This software is provided "AS IS" without guarantee of any kind. It shares the same license as Prosody.
+See src/COPYING.
